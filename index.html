@@ -120,7 +120,6 @@
     }
   </style>
   <style>
-    /* Meny-stil */
     #mobile-menu {
       display: none;
       position: fixed;
@@ -133,7 +132,20 @@
       text-align: center;
       z-index: 1000;
       overflow-y: auto;
+      animation: fadeInMenu 0.5s ease-out forwards;
+      /* Animation properties */
     }
+
+    @keyframes fadeInMenu {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
 
     #mobile-menu ul {
       list-style-type: none;
@@ -522,12 +534,13 @@
   <script>
     function toggleMenu() {
       var menu = document.getElementById('mobile-menu');
-      if (menu.style.display === 'block') {
-        menu.style.display = 'none';
+      if (menu.style.display === 'none' || menu.style.display === '') {
+        menu.style.display = 'block'; // Ensures the menu is displayed before starting animation
       } else {
-        menu.style.display = 'block';
+        menu.style.display = 'none';
       }
     }
+
 
   </script>
 
